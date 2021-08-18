@@ -1,0 +1,246 @@
+@font-face {
+    font-family: "Proxima Nova Condensed Bold";
+    src:local("Proxima Nova Condensed Bold"), 
+     url("../Proxima/Bold/ProximaNovaCond-Bold.ttf"),
+     url("../Proxima/Bold/ProximaNovaCond-Bold.eot"),
+     url("../Proxima/Bold/ProximaNovaCond-Bold.otf"),
+     url("../Proxima/Bold/ProximaNovaCond-Bold.woff"),
+     url("../Proxima/Bold/ProximaNovaCond-Bold.woff2"),
+     url("../Proxima/Bold/ProximaNovaCondBold.woff");
+}
+
+@font-face {
+    font-family:"Proxima Nova Condensed Regular";
+    src:local("Proxima Nova Condensed Regular"),
+    url("../Proxima/Regular/ProximaNovaCond-Regular.eot"),
+    url("../Proxima/Regular/ProximaNovaCond-Regular.ttf"),
+    url("../Proxima/Regular/ProximaNovaCond-Regular.woff"),
+    url("../Proxima/Regular/ProximaNovaCond-Regular.woff2");
+}
+
+@font-face {
+    font-family:"Proxima Nova Condensed Extrabld";
+    src: local("Proxima Nova Condensed Extrabld"),
+     url("../Proxima/ExBold/ProximaNovaCond-Extrabld.ttf"),
+     url("../Proxima/ExBold/ProximaNovaCond-Extrabld.eot"),
+     url("../Proxima/ExBold/ProximaNovaCond-Extrabld.woff"),
+     url("../Proxima/ExBold/ProximaNovaCond-Extrabld.woff2"),
+     url("../Proxima/ExBold/ProximaNovaCond-ExtrabldIt.eot"),
+     url("../Proxima/ExBold/ProximaNovaCond-ExtrabldIt.woff"),
+     url("../Proxima/ExBold/ProximaNovaCond-ExtrabldIt.woff2"),
+     url("../Proxima/ExBold/ProximaNovaCond-ExtrabldIt.ttf");
+}
+
+@font-face {
+    font-family:"Proxima Nova Condensed Black" ;
+    src: local("Proxima Nova Condensed Black"),
+     url("../Proxima/Black/ProximaNovaCond-Black.eot"),
+     url("../Proxima/Black/ProximaNovaCond-Black.otf"),
+     url("../Proxima/Black/ProximaNovaCond-Black.ttf"),
+     url("../Proxima/Black/ProximaNovaCond-Black.woff"),
+     url("../Proxima/Black/ProximaNovaCond-Black.woff2"),
+     url("../Proxima/Black/ProximaNovaCondBlack.woff");
+}
+
+@font-face {
+    font-family:"Proxima Nova Condensed ExBlack" ;
+    src: local("Proxima Nova Condensed ExBlack"),
+     url("../Proxima/ExBlack/ProximaNovaExCn-Black.otf"),
+     url("../Proxima/ExBlack/ProximaNovaExCn-Black.ttf"),
+     url("../Proxima/ExBlack/ProximaNovaExCn-Black.woff"),
+     url("../Proxima/ExBlack/ProximaNovaExCn-Black.woff2");
+}
+
+/* Стили для выбора формы */
+.registration{
+    position: relative;
+}
+
+h2{
+    font-family: Proxima Nova Condensed Black, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 38px;
+    text-align: center;
+}
+
+.container-forms{
+    display: flex;
+    justify-content: center;
+    margin-top: 63px;
+}
+
+.shape-selection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 370px;
+    min-height: 335px;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.09), 0px 3px 19px rgba(51, 51, 51, 0.04);
+    border-radius: 3px;
+}
+
+.shape-selection:first-child{
+    margin-right: 30px;
+}
+
+#img-shape_two{
+    margin-top: 13px;
+}
+
+.container-form__btns{
+    width: 170px;
+    height: 46px;
+    left: 100px;
+    bottom: 36px;
+    background: #2998FF;
+    border: 1px solid #0F8FEE;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.btns__shape_two{
+    margin-top: 32px;
+}
+
+/* Конец стилей для выбора формы */
+
+/* Стили для формы 1 */
+.wrapper{
+    position: absolute;
+}
+
+.container-shape{
+    position: relative;
+    width: 670px;
+    height: 380px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 12px rgba(46, 45, 61, 0.18), 0px 16px 80px rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
+    margin: 0 auto;
+    padding-left: 37px;
+    padding-right: 29px;
+    box-sizing: border-box;
+    
+}
+
+.hiden{
+    display: none;
+}
+
+.container-shape__two{
+    height: 648px;
+}
+
+.container-shape__hidden{
+    display: none;
+}
+
+.container-shape__show{
+    display: block;
+    left: calc(50% - 670px/2);
+    /* top: calc(20% - 380px/2) */
+}
+
+.container-shape__wrapper{
+    display: flex;
+    justify-content:space-between ;
+}
+
+.input-forms{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"]{
+    width: 368px;
+    height: 48px;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding-left: 17px;
+    margin-bottom: 18px;
+}
+
+input[type="text"]:first-child{
+    margin-top: 34px;
+}
+
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    color: #B3B3B3;
+    margin-left: 17px;
+}
+
+.checkbox{
+    margin-top: 38px;
+}
+
+label{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.container-shape__btns{
+    width: 192px;
+    height: 46px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 35px;
+    background: #2998FF;
+    border: 1px solid #2998FF;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input-forms__img{
+    height: 203px;
+    width: 192px;
+}
+
+.container-shape__text{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999999;
+    margin-top: 16px;
+}
+
+.buttom-close{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 17px;
+    top: 15px;
+}
+
+
+/* Конец стилей формы 1 */

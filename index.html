@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="registration">
+        <h2>Зарегистрироваться</h2>
+        <div class="container-form__wrapper">
+            <div class="container-forms">
+                <div class="shape-selection">
+                    <img src="img/shape_one.svg" alt="form">
+                    <button class="container-form__btns shape_one">Форма 1</button>
+                </div>
+                <div class="shape-selection">
+                        <img id="img-shape_two" src="img/shape_two.svg" alt="form">
+                        <button class="container-form__btns btns__shape_two">Форма 2</button>
+                </div>
+            </div>    
+        </div>
+        <div class="wrapper container-shape__hidden">
+        <div class="container-shape container-shape__one">
+            <div class="container-shape__wrapper">
+                <div class="input-forms">
+                    <input class="mail-number" type="text" data-input placeholder="Email или телефон">
+                    <input class="text" type="text" data-input placeholder="Город" required>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox" checked>
+                        <label for="checkbox">Я хочу получить рассылку после мероприятия</label>
+                    </div>
+                </div>
+                <img class="input-forms__img" src="img/shape_one_registration.svg" alt="shape_one">
+            </div>
+            <button class="container-shape__btns  container-shape__btns_one">Зарегистрироваться</button>
+            <p class="container-shape__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            <a class="buttom-close" href="#">
+                <img src="img/close2.png" alt="">
+            </a>
+        </div>
+        </div>
+        <div class="wrapper container-shape__hidden">
+        <div class="container-shape container-shape__two">
+            <div class="container-shape__wrapper">
+                <div class="input-forms">
+                    <input class="name" type="text" data-input placeholder="Имя" required>
+                    <input class="surname" type="text" data-input placeholder="Фамилия" required>
+                    <input class="phone" type="tel" data-input placeholder="Телефон" pattern="2[0-9]{3}-[0-9]{3}" required>
+                    <input class="email" type="email" data-input placeholder="Email" required>
+                    <input class="company-name" type="text" data-input placeholder="Название компании" required>
+                    <input class="region" type="text" data-input placeholder="Регион" required>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" checked>
+                        <label for="checkbox2">Я хочу получить рассылку после мероприятия</label>
+                    </div>
+                </div>
+                <img class="input-forms__img" src="img/shape_two_registration.svg" alt="shape_one">
+            </div>
+            <button class="container-shape__btns container-shape__btns_two">Зарегистрироваться</button>
+            <p class="container-shape__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            <a class="buttom-close" href="#">
+                <img src="img/close2.png" alt="">
+            </a>
+        </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
