@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const emailPattern = new RegExp(/^(.+)@(.+)$/);
         const phonePattern = new RegExp(/^(?:\+?7|8)\d{10}$/);
         const obj = {};
-              
+        const objTwo ={};
         button.addEventListener('click', (e) =>{
             e.preventDefault();
             validationFunction();
@@ -60,17 +60,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
         buttonTwo.addEventListener('click', (e) =>{
             e.preventDefault();
+            const registrationField = document.querySelector('#two-registr');
             validationFunctionTwo();
-            if(Object.keys(obj).length == allFormsTwo.length){
-                console.log(obj);
-                const registrationField = document.querySelector('#two-registr');
+            if(Object.keys(objTwo).length == allFormsTwo.length){
+                console.log(objTwo);
+                
                 returnToRegistrationSelection(registrationField);   
             };
         });
 
         function returnToRegistrationSelection(block){
             const shapeSelectionWindow = document.querySelector('.container-form__wrapper');
-            block.remove('container-shape__show');
+            block.classList.remove('container-shape__show');
             block.classList.add('container-shape__hidden');
             shapeSelectionWindow.classList.remove('hiden');
         }
@@ -78,75 +79,75 @@ document.addEventListener('DOMContentLoaded', function(){
 
         function validationFunction(){
             if(!validad(phonePattern, inputMailNumber.value) && !validad(emailPattern, inputMailNumber.value)){
-                trueInstructions(inputMailNumber,errorMessageOutput, errorMessage);
+                trueInstructions(inputMailNumber,errorMessageOutput, errorMessage, obj);
             }
             else{
-                folsInstructions(inputMailNumber, deleteErrorMessage, errorMessage);
+                folsInstructions(inputMailNumber, deleteErrorMessage, errorMessage, obj);
             }
             if(!validad(cyrillicPattern, inputTextName.value)){
-                trueInstructions(inputTextName,errorMessageOutput, errorMessage);
+                trueInstructions(inputTextName,errorMessageOutput, errorMessage, obj);
             }
             else{
-                folsInstructions(inputTextName, deleteErrorMessage, errorMessage);
+                folsInstructions(inputTextName, deleteErrorMessage, errorMessage, obj);
             }
         };
        
         function validationFunctionTwo(){
             if( !validad(cyrillicPattern, name.value)){
-                trueInstructions(name,errorMessageOutput,errorMessagetwo);
+                trueInstructions(name,errorMessageOutput,errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(name, deleteErrorMessage,errorMessagetwo);
+                folsInstructions(name, deleteErrorMessage,errorMessagetwo, objTwo);
             }
 
             if( !validad(cyrillicPattern, surName.value)){
-                trueInstructions(surName,errorMessageOutput, errorMessagetwo);
+                trueInstructions(surName,errorMessageOutput, errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(surName, deleteErrorMessage, errorMessagetwo);
+                folsInstructions(surName, deleteErrorMessage, errorMessagetwo, objTwo);
             }
 
             if(!validad(phonePattern, phone.value)){
-                trueInstructions(phone,errorMessageOutput, errorMessagetwo);
+                trueInstructions(phone,errorMessageOutput, errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(phone, deleteErrorMessage, errorMessagetwo);
+                folsInstructions(phone, deleteErrorMessage, errorMessagetwo, objTwo);
             }
 
             if(!validad(emailPattern, email.value)){
-                trueInstructions(email,errorMessageOutput, errorMessagetwo);
+                trueInstructions(email,errorMessageOutput, errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(email, deleteErrorMessage, errorMessagetwo);
+                folsInstructions(email, deleteErrorMessage, errorMessagetwo, objTwo);
             }
 
             if( !validad(cyrillicPattern,  companyName.value)){
-                trueInstructions(companyName,errorMessageOutput, errorMessagetwo);
+                trueInstructions(companyName,errorMessageOutput, errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(companyName, deleteErrorMessage, errorMessagetwo);
+                folsInstructions(companyName, deleteErrorMessage, errorMessagetwo, objTwo);
             }
             if( !validad(cyrillicPattern, region.value)){
-                trueInstructions(region, errorMessageOutput, errorMessagetwo);
+                trueInstructions(region, errorMessageOutput, errorMessagetwo, objTwo);
             }
             else{
-                folsInstructions(region, deleteErrorMessage, errorMessagetwo);
+                folsInstructions(region, deleteErrorMessage, errorMessagetwo, objTwo);
             }   
         };
            
-        function trueInstructions(form, itemfn, message){
+        function trueInstructions(form, itemfn, message, ob){
             form.classList.add('not-valid');
             itemfn(form,  message);
             let a = form.dataset.inpu;
-            delete obj[a];
-            form.value = '';
+            delete ob[a];
         };
 
-        function folsInstructions(form, itemfn,  message){
+        function folsInstructions(form, itemfn,  message, ob){
             form.classList.remove('not-valid');
             itemfn(form,  message);
             let a = form.dataset.inpu;
-            obj[a]=form.value;
+            ob[a]=form.value;
+            form.value = '';
         };
 
         function validad(patern, input){
