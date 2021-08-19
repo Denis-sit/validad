@@ -255,10 +255,10 @@ label{
     height: 12px;
     right: 17px;
     top: 15px;
-    background-image: url('/img/closed.png');
+    background-image: url('/img/Group.png');
     background-repeat: no-repeat;
     background-size: contain;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .not-valid{
