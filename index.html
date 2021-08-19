@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
 </head>
@@ -13,58 +14,58 @@
         <div class="container-form__wrapper">
             <div class="container-forms">
                 <div class="shape-selection">
-                    <img src="img/shape_one.svg" alt="form">
+                    <img class="container-forms__img" src="img/shape_one.svg" alt="form">
                     <button class="container-form__btns shape_one">Форма 1</button>
                 </div>
                 <div class="shape-selection">
-                        <img id="img-shape_two" src="img/shape_two.svg" alt="form">
+                        <img class="container-forms__img-two" src="img/shape_two.svg" alt="form">
                         <button class="container-form__btns btns__shape_two">Форма 2</button>
                 </div>
             </div>    
         </div>
-        <div class="wrapper container-shape__hidden">
-        <div class="container-shape container-shape__one">
+        <div class="container-shape  hiden" id="one-registr">
             <div class="container-shape__wrapper">
-                <div class="input-forms">
-                    <input class="mail-number" type="text" data-input placeholder="Email или телефон">
-                    <input class="text" type="text" data-input placeholder="Город" required>
+                <form class="block-input-forms block-input-forms_one">
+                    <input class="input-form" id="mail-phone" type="text" data-inpu="mail-phone" placeholder="Email или телефон">
+                    <span class="error-message" data-in="mail-phone">Обязательное поле</span>
+                    <input class="input-form" id="city" type="text" data-inpu="city" placeholder="Город">
+                    <span class="error-message" data-in="city">Обязательное поле</span>
                     <div class="checkbox">
                         <input type="checkbox" id="checkbox" checked>
                         <label for="checkbox">Я хочу получить рассылку после мероприятия</label>
                     </div>
-                </div>
+                </form>
                 <img class="input-forms__img" src="img/shape_one_registration.svg" alt="shape_one">
             </div>
             <button class="container-shape__btns  container-shape__btns_one">Зарегистрироваться</button>
             <p class="container-shape__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-            <a class="buttom-close" href="#">
-                <img src="img/close2.png" alt="">
-            </a>
+            <button class="buttom-close" href="#"></button>
         </div>
-        </div>
-        <div class="wrapper container-shape__hidden">
-        <div class="container-shape container-shape__two">
+        <div class="container-shape hiden" id="two-registr">
             <div class="container-shape__wrapper">
-                <div class="input-forms">
-                    <input class="name" type="text" data-input placeholder="Имя" required>
-                    <input class="surname" type="text" data-input placeholder="Фамилия" required>
-                    <input class="phone" type="tel" data-input placeholder="Телефон" pattern="2[0-9]{3}-[0-9]{3}" required>
-                    <input class="email" type="email" data-input placeholder="Email" required>
-                    <input class="company-name" type="text" data-input placeholder="Название компании" required>
-                    <input class="region" type="text" data-input placeholder="Регион" required>
+                <form class="block-input-forms block-input-forms_two">
+                    <input class="input-form" id="name" type="text" data-inpu="name" placeholder="Имя" required>
+                    <span class="error-message" data-in="name">Обязательное поле</span>
+                    <input class="input-form" id="surname" type="text" data-inpu="surname" placeholder="Фамилия" required>
+                    <span class="error-message" data-in="surname">Обязательное поле</span>
+                    <input class="input-form" id="phone" type="tel" data-inpu="phone" placeholder="Телефон" pattern="2[0-9]{3}-[0-9]{3}" required>
+                    <span class="error-message" data-in="phone">Обязательное поле</span>
+                    <input class="input-form" id="email" type="email" data-inpu="email" placeholder="Email" required>
+                    <span class="error-message" data-in="email">Обязательное поле</span>
+                    <input class="input-form" id="company-name" type="text" data-inpu="company-name" placeholder="Название компании" required>
+                    <span class="error-message" data-in="company-name">Обязательное поле</span>
+                    <input class="input-form" id="region" type="text" data-inpu="region" placeholder="Регион" required>
+                    <span class="error-message" data-in="region">Обязательное поле</span>
                     <div class="checkbox">
                         <input type="checkbox" id="checkbox2" checked>
                         <label for="checkbox2">Я хочу получить рассылку после мероприятия</label>
                     </div>
-                </div>
+                </form>
                 <img class="input-forms__img" src="img/shape_two_registration.svg" alt="shape_one">
             </div>
             <button class="container-shape__btns container-shape__btns_two">Зарегистрироваться</button>
             <p class="container-shape__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-            <a class="buttom-close" href="#">
-                <img src="img/close2.png" alt="">
-            </a>
-        </div>
+            <button class="buttom-close" href="#"></button>
         </div>
     </section>
     <script src="js/script.js"></script>

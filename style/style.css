@@ -76,7 +76,6 @@ h2{
     flex-direction: column;
     align-items: center;
     min-width: 370px;
-    min-height: 335px;
     box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.09), 0px 3px 19px rgba(51, 51, 51, 0.04);
     border-radius: 3px;
 }
@@ -85,8 +84,16 @@ h2{
     margin-right: 30px;
 }
 
-#img-shape_two{
+.container-forms__img-two{
+    width: 243px;
+    height: 213px;
     margin-top: 13px;
+}
+
+
+.container-forms__img{
+    width: 273px;
+    height: 258px;
 }
 
 .container-form__btns{
@@ -106,6 +113,11 @@ h2{
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
+    margin-bottom: 36px;
+}
+
+.container-form__btns:hover{
+    opacity: 0.7;
 }
 
 .btns__shape_two{
@@ -115,30 +127,22 @@ h2{
 /* Конец стилей для выбора формы */
 
 /* Стили для формы 1 */
-.wrapper{
-    position: absolute;
-}
 
 .container-shape{
     position: relative;
     width: 670px;
-    height: 380px;
     background: #FFFFFF;
     box-shadow: 0px 0px 12px rgba(46, 45, 61, 0.18), 0px 16px 80px rgba(0, 0, 0, 0.04);
     border-radius: 6px;
     margin: 0 auto;
     padding-left: 37px;
     padding-right: 29px;
+    padding-bottom: 20px;
     box-sizing: border-box;
-    
 }
 
 .hiden{
     display: none;
-}
-
-.container-shape__two{
-    height: 648px;
 }
 
 .container-shape__hidden{
@@ -147,8 +151,8 @@ h2{
 
 .container-shape__show{
     display: block;
-    left: calc(50% - 670px/2);
-    /* top: calc(20% - 380px/2) */
+    margin: auto;
+    margin-top: 30px;
 }
 
 .container-shape__wrapper{
@@ -156,14 +160,12 @@ h2{
     justify-content:space-between ;
 }
 
-.input-forms{
+.block-input-forms{
     display: flex;
     flex-direction: column;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"]{
+.input-form{
     width: 368px;
     height: 48px;
     border: 1px solid #E5E5E5;
@@ -173,13 +175,18 @@ input[type="email"]{
     margin-bottom: 18px;
 }
 
-input[type="text"]:first-child{
+.block-input-forms .input-form{
+   margin-bottom: 0;
+   margin-top: 3px;
+}
+
+.input-form:first-child{
     margin-top: 34px;
 }
 
-input::-moz-placeholder,
-input::-webkit-input-placeholder,
-input:-ms-input-placeholder{
+.input-form::-moz-placeholder,
+.input-form::-webkit-input-placeholder,
+.input-form:-ms-input-placeholder{
     font-family: Arial;
     font-style: normal;
     font-weight: normal;
@@ -188,6 +195,8 @@ input:-ms-input-placeholder{
     color: #B3B3B3;
     margin-left: 17px;
 }
+
+
 
 .checkbox{
     margin-top: 38px;
@@ -219,6 +228,10 @@ label{
     cursor: pointer;
 }
 
+.container-shape__btns:hover{
+    opacity: 0.7;
+}
+
 .input-forms__img{
     height: 203px;
     width: 192px;
@@ -236,11 +249,34 @@ label{
 
 .buttom-close{
     position: absolute;
+    border: none;
+    background-color: white;
     width: 12px;
     height: 12px;
     right: 17px;
     top: 15px;
+    background-image: url('/img/close2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
 }
 
+.not-valid{
+    border:1px solid  red;
+}
 
+.error-message{
+    visibility: hidden;
+    color: red;
+    font-family: 'Proxima Nova Condensed Regular', sans-serif;
+    margin-left: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 3px;
+    display: inline-block;
+}
+
+.error-hide{
+    visibility: visible;
+}
 /* Конец стилей формы 1 */
