@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
             itemfn(form,  message);
             let a = form.dataset.inpu;
             delete obj[a];
+            form.value = '';
         };
 
         function folsInstructions(form, itemfn,  message){
@@ -146,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function(){
             itemfn(form,  message);
             let a = form.dataset.inpu;
             obj[a]=form.value;
-            form.value = '';
         };
 
         function validad(patern, input){
