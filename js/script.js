@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){  
     const shapeSelectionWindow = document.querySelector('.container-form__wrapper');
-    function OpeningTheRegistrationWindow(){
+    // function OpeningTheRegistrationWindow(){
         const btnsForm = document.querySelectorAll('.container-form__btns'),
               registrationField = document.querySelectorAll('.container-shape'),
               closeModal = document.querySelectorAll('.buttom-close');
@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function(){
               blockSuccessfulRegistration = document.querySelector('.block__successful-registration');    
         const allInput = document.querySelectorAll(' .input-form');
         const allMessage = document.querySelectorAll('.error-message'); 
-        
+        let timer;
+
+
         btnsForm.forEach((item, i) => {
             item.addEventListener('click', (e) =>{
               e.preventDefault;
@@ -47,15 +49,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 blockSuccessfulRegistration.classList.add('hiden');
                 blockSuccessfulRegistration.classList.remove('block__successful-registration_show');
                 shapeSelectionWindow.classList.remove('hiden');
-
+                clearTimeout(timer);
             })    
         })
        
 
-    };
-    OpeningTheRegistrationWindow()
+    // };
+    // OpeningTheRegistrationWindow()
    
-    function formValidation(){
+    // function formValidation(){
         
         const inputTextName = document.querySelector('#city'),
               inputMailNumber = document.querySelector('#mail-phone'),
@@ -89,14 +91,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 allForms.forEach(item =>{
                     item.value='';
                 });
-                if(closeSuccessfulRegistration){
-                }else{
-                    setTimeout(automaticWindowClosing, 3000);
-                }
+                timer = setTimeout(automaticWindowClosing, 3000);
                 
             };
         });
-
+        
         buttonTwo.addEventListener('click', (e) =>{
             e.preventDefault();
             validationFunctionTwo();
@@ -107,23 +106,26 @@ document.addEventListener('DOMContentLoaded', function(){
                 allFormsTwo.forEach(item =>{
                     item.value='';
                 });
-                if(closeSuccessfulRegistration){
-                }else{
-                    setTimeout(automaticWindowClosing, 3000);
-                }
+                timer = setTimeout(automaticWindowClosing, 3000);
             };
         });
+
+        
 
         function blocksuccessfulRegistration(block, blockreg){
             block.classList.add('block__successful-registration_show');
             block.classList.remove('hiden');
             blockreg.classList.add('hiden');
+            blockreg.classList.remove('container-shape__show');
         }
 
          function automaticWindowClosing(){
             successfulRegistration.classList.remove('block__successful-registration_show');
             successfulRegistration.classList.add('hiden');
             shapeSelectionWindow.classList.remove('hiden');
+            registrationField.forEach(item =>{
+                item.classList.remove('container-shape__show');
+            })
          }
 
 
@@ -227,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         };
 
-    };
-    formValidation();
+    // };
+    // formValidation();
 });
 
