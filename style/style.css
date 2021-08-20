@@ -126,9 +126,10 @@ h2{
 
 /* Конец стилей для выбора формы */
 
-/* Стили для формы 1 */
+/* Стили для формы  */
 
-.container-shape{
+.container-shape,
+.block__successful-registration{
     position: relative;
     width: 670px;
     background: #FFFFFF;
@@ -141,13 +142,7 @@ h2{
     box-sizing: border-box;
 }
 
-.hiden{
-    display: none;
-}
 
-.container-shape__hidden{
-    display: none;
-}
 
 .container-shape__show{
     display: block;
@@ -247,7 +242,8 @@ label{
     margin-top: 16px;
 }
 
-.buttom-close{
+.buttom-close,
+.buttom-close2{
     position: absolute;
     border: none;
     background-color: white;
@@ -279,4 +275,37 @@ label{
 .error-hide{
     visibility: visible;
 }
-/* Конец стилей формы 1 */
+/* Конец стилей формы  */
+
+/* Стили блока успешной регистрации */
+
+.block__successful-registration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.title__successful-registration{
+    font-family: 'Proxima Nova Condensed Regular', sans-serif;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.text__successful-registration{
+    font-family: 'Proxima Nova Condensed Regular', sans-serif;
+    margin-bottom: 30px;
+}
+
+.text__link{
+    text-decoration: none;
+    color:  #2998FF;
+}
+/* Конец стилей блока успешной регистрации */
+.hiden{
+    display: none;
+}
+
+.block__successful-registration_show{
+    display: flex;
+}

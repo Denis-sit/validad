@@ -1,38 +1,50 @@
 document.addEventListener('DOMContentLoaded', function(){  
+    const shapeSelectionWindow = document.querySelector('.container-form__wrapper');
     function OpeningTheRegistrationWindow(){
         const btnsForm = document.querySelectorAll('.container-form__btns'),
               registrationField = document.querySelectorAll('.container-shape'),
-              shapeSelectionWindow = document.querySelector('.container-form__wrapper'),
               closeModal = document.querySelectorAll('.buttom-close');
-     
-        btnsForm.forEach((item, i) => {
+        const closeSuccessfulRegistration = document.querySelectorAll('.close'),
+              blockSuccessfulRegistration = document.querySelector('.block__successful-registration');    
+              btnsForm.forEach((item, i) => {
             item.addEventListener('click', (e) =>{
               e.preventDefault;
               shapeSelectionWindow.classList.add('hiden');
-              registrationField[i].classList.remove('container-shape__hidden');
+              registrationField[i].classList.remove('hiden');
               registrationField[i].classList.add('container-shape__show');
           });
         });
         
         closeModal.forEach((btnClose, i) => {
+           
             btnClose.addEventListener('click', (e) =>{
               e.preventDefault;
               registrationField[i].classList.remove('container-shape__show');
-              registrationField[i].classList.add('container-shape__hidden');
+              registrationField[i].classList.add('hiden');
               shapeSelectionWindow.classList.remove('hiden');
           });
         });
-    
+        
+        closeSuccessfulRegistration.forEach(item =>{
+            item.addEventListener('click', (e) =>{
+                e.preventDefault();
+                blockSuccessfulRegistration.classList.add('hiden');
+                blockSuccessfulRegistration.classList.remove('block__successful-registration_show');
+                shapeSelectionWindow.classList.remove('hiden');
+            })    
+        })
+       
+
     };
     OpeningTheRegistrationWindow()
-    
+   
     function formValidation(){
         
         const inputTextName = document.querySelector('#city'),
               inputMailNumber = document.querySelector('#mail-phone'),
               allForms = document.querySelectorAll('.block-input-forms_one .input-form'),
               allFormsTwo = document.querySelectorAll('.block-input-forms_two .input-form');
-              
+               
         const errorMessage = document.querySelectorAll('.block-input-forms_one .error-message'),
               errorMessagetwo = document.querySelectorAll('.block-input-forms_two .error-message');
         const name = document.querySelector('#name'),
@@ -43,38 +55,48 @@ document.addEventListener('DOMContentLoaded', function(){
               region = document.querySelector('#region');
         const button = document.querySelector('.container-shape__btns_one'),
               buttonTwo = document.querySelector('.container-shape__btns_two');
+        const successfulRegistration = document.querySelector('.block__successful-registration');
         const cyrillicPattern = new RegExp(/^[ЁёА-я]+$/);
         const emailPattern = new RegExp(/^(.+)@(.+)$/);
         const phonePattern = new RegExp(/^(?:\+?7|8)\d{10}$/);
         const obj = {};
         const objTwo ={};
+        
         button.addEventListener('click', (e) =>{
             e.preventDefault();
             validationFunction();
             if(Object.keys(obj).length == allForms.length){
                 console.log(obj);
                 const registrationField = document.querySelector('#one-registr');
-                returnToRegistrationSelection(registrationField);
+                blocksuccessfulRegistration(successfulRegistration, registrationField);
+                setTimeout(automaticWindowClosing, 3000);
             };
         });
 
         buttonTwo.addEventListener('click', (e) =>{
             e.preventDefault();
-            const registrationField = document.querySelector('#two-registr');
             validationFunctionTwo();
             if(Object.keys(objTwo).length == allFormsTwo.length){
                 console.log(objTwo);
-                
-                returnToRegistrationSelection(registrationField);   
+                const registrationField = document.querySelector('#two-registr');
+                blocksuccessfulRegistration(successfulRegistration, registrationField); 
+                setTimeout(automaticWindowClosing, 3000);  
             };
         });
 
-        function returnToRegistrationSelection(block){
-            const shapeSelectionWindow = document.querySelector('.container-form__wrapper');
-            block.classList.remove('container-shape__show');
-            block.classList.add('container-shape__hidden');
-            shapeSelectionWindow.classList.remove('hiden');
+        function blocksuccessfulRegistration(block, blockreg){
+            block.classList.add('block__successful-registration_show');
+            block.classList.remove('hiden');
+            blockreg.classList.add('hiden');
         }
+
+         function automaticWindowClosing(){
+            successfulRegistration.classList.remove('block__successful-registration_show');
+            successfulRegistration.classList.add('hiden');
+            shapeSelectionWindow.classList.remove('hiden');
+         }
+
+
 
 
         function validationFunction(){
