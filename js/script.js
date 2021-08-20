@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function(){
               closeModal = document.querySelectorAll('.buttom-close');
         const closeSuccessfulRegistration = document.querySelectorAll('.close'),
               blockSuccessfulRegistration = document.querySelector('.block__successful-registration');    
-              btnsForm.forEach((item, i) => {
+        const allInput = document.querySelectorAll(' .input-form');
+        const allMessage = document.querySelectorAll('.error-message'); 
+        
+        btnsForm.forEach((item, i) => {
             item.addEventListener('click', (e) =>{
               e.preventDefault;
               shapeSelectionWindow.classList.add('hiden');
@@ -18,19 +21,33 @@ document.addEventListener('DOMContentLoaded', function(){
         closeModal.forEach((btnClose, i) => {
            
             btnClose.addEventListener('click', (e) =>{
-              e.preventDefault;
-              registrationField[i].classList.remove('container-shape__show');
-              registrationField[i].classList.add('hiden');
-              shapeSelectionWindow.classList.remove('hiden');
-          });
+                 e.preventDefault;
+                 registrationField[i].classList.remove('container-shape__show');
+                 registrationField[i].classList.add('hiden');
+                 shapeSelectionWindow.classList.remove('hiden');
+                 hidingErrorЬessages(allInput);
+                 
+            });
         });
         
+        function hidingErrorЬessages(item){
+            for(i=0; i<item.length;i++){
+                item[i].value='';
+                if(item[i].classList.contains('not-valid') ){
+                    item[i].classList.remove('not-valid');
+                    allMessage[i].classList.remove('error-hide');
+                }
+               
+            }
+        }
+
         closeSuccessfulRegistration.forEach(item =>{
             item.addEventListener('click', (e) =>{
                 e.preventDefault();
                 blockSuccessfulRegistration.classList.add('hiden');
                 blockSuccessfulRegistration.classList.remove('block__successful-registration_show');
                 shapeSelectionWindow.classList.remove('hiden');
+
             })    
         })
        
@@ -69,7 +86,14 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log(obj);
                 const registrationField = document.querySelector('#one-registr');
                 blocksuccessfulRegistration(successfulRegistration, registrationField);
-                setTimeout(automaticWindowClosing, 3000);
+                allForms.forEach(item =>{
+                    item.value='';
+                });
+                if(closeSuccessfulRegistration){
+                }else{
+                    setTimeout(automaticWindowClosing, 3000);
+                }
+                
             };
         });
 
@@ -79,8 +103,14 @@ document.addEventListener('DOMContentLoaded', function(){
             if(Object.keys(objTwo).length == allFormsTwo.length){
                 console.log(objTwo);
                 const registrationField = document.querySelector('#two-registr');
-                blocksuccessfulRegistration(successfulRegistration, registrationField); 
-                setTimeout(automaticWindowClosing, 3000);  
+                blocksuccessfulRegistration(successfulRegistration, registrationField);
+                allFormsTwo.forEach(item =>{
+                    item.value='';
+                });
+                if(closeSuccessfulRegistration){
+                }else{
+                    setTimeout(automaticWindowClosing, 3000);
+                }
             };
         });
 
@@ -156,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 folsInstructions(region, deleteErrorMessage, errorMessagetwo, objTwo);
             }   
         };
-           
+
         function trueInstructions(form, itemfn, message, ob){
             form.classList.add('not-valid');
             itemfn(form,  message);
@@ -169,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function(){
             itemfn(form,  message);
             let a = form.dataset.inpu;
             ob[a]=form.value;
-            form.value = '';
         };
 
         function validad(patern, input){
@@ -179,8 +208,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         function errorMessageOutput(item, message){
             message.forEach((elem) =>{
-                if(item.dataset.inpu == elem.dataset.in){
+               if(item.dataset.inpu == elem.dataset.in && item.value == ''){
                     elem.classList.add('error-hide');
+                }
+                else if(item.dataset.inpu == elem.dataset.in){
+                    elem.classList.add('error-hide');
+                    elem.textContent = `Ожидалось ${item.placeholder}`;
                 }
             });
             
