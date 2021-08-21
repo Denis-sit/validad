@@ -63,6 +63,7 @@ h2{
     font-size: 34px;
     line-height: 38px;
     text-align: center;
+    margin-top: 93px;
 }
 
 .container-forms{
@@ -179,9 +180,7 @@ h2{
     margin-top: 34px;
 }
 
-.input-form::-moz-placeholder,
-.input-form::-webkit-input-placeholder,
-.input-form:-ms-input-placeholder{
+.input-form::placeholder{
     font-family: Arial;
     font-style: normal;
     font-weight: normal;
@@ -290,6 +289,7 @@ label{
     font-family: 'Proxima Nova Condensed Regular', sans-serif;
     font-weight: 500;
     margin-bottom: 50px;
+    margin-top: 0;
 }
 
 .text__successful-registration{
