@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function(){
         let timer;
 
 
-        btnsForm.forEach((item, i) => {
-            item.addEventListener('click', (e) =>{
+        btnsForm.forEach(function (item, i) {
+            item.addEventListener('click', function(e){
               e.preventDefault;
               shapeSelectionWindow.classList.add('hiden');
               registrationField[i].classList.remove('hiden');
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
           });
         });
         
-        closeModal.forEach((btnClose, i) => {
+        closeModal.forEach(function (btnClose, i) {
            
-            btnClose.addEventListener('click', (e) =>{
+            btnClose.addEventListener('click', function(e){
                  e.preventDefault;
                  registrationField[i].classList.remove('container-shape__show');
                  registrationField[i].classList.add('hiden');
@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
-        closeSuccessfulRegistration.forEach(item =>{
-            item.addEventListener('click', (e) =>{
+        closeSuccessfulRegistration.forEach(function(item){
+            item.addEventListener('click', function(e){
                 e.preventDefault();
                 blockSuccessfulRegistration.classList.add('hiden');
                 blockSuccessfulRegistration.classList.remove('block__successful-registration_show');
@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', function(){
         const obj = {};
         const objTwo ={};
         
-        button.addEventListener('click', (e) =>{
+        button.addEventListener('click', function(e){
             e.preventDefault();
             validationFunction();
             if(Object.keys(obj).length == allForms.length){
                 console.log(obj);
                 const registrationField = document.querySelector('#one-registr');
                 blocksuccessfulRegistration(successfulRegistration, registrationField);
-                allForms.forEach(item =>{
+                allForms.forEach(function(item){
                     item.value='';
                 });
                 timer = setTimeout(automaticWindowClosing, 3000);
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', function(){
             };
         });
         
-        buttonTwo.addEventListener('click', (e) =>{
+        buttonTwo.addEventListener('click', function(e){
             e.preventDefault();
             validationFunctionTwo();
             if(Object.keys(objTwo).length == allFormsTwo.length){
                 console.log(objTwo);
                 const registrationField = document.querySelector('#two-registr');
                 blocksuccessfulRegistration(successfulRegistration, registrationField);
-                allFormsTwo.forEach(item =>{
+                allFormsTwo.forEach(function(item){
                     item.value='';
                 });
                 timer = setTimeout(automaticWindowClosing, 3000);
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function(){
             successfulRegistration.classList.remove('block__successful-registration_show');
             successfulRegistration.classList.add('hiden');
             shapeSelectionWindow.classList.remove('hiden');
-            registrationField.forEach(item =>{
+            registrationField.forEach(function(item){
                 item.classList.remove('container-shape__show');
             })
          }
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function(){
         };
 
         function errorMessageOutput(item, message){
-            message.forEach((elem) =>{
+            message.forEach(function(elem){
                if(item.dataset.inpu == elem.dataset.in && item.value == ''){
                     elem.classList.add('error-hide');
                 }
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function(){
         };
         
         function deleteErrorMessage(itemDel, messageDel){
-            messageDel.forEach((elemDel) =>{
+            messageDel.forEach(function(elemDel){
                 if(itemDel.dataset.inpu == elemDel.dataset.in){
                     elemDel.classList.remove('error-hide');
                 }
