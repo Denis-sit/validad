@@ -1,6 +1,7 @@
+
 document.addEventListener('DOMContentLoaded', function(){  
     const shapeSelectionWindow = document.querySelector('.container-form__wrapper');
-    // function OpeningTheRegistrationWindow(){
+  
         const btnsForm = document.querySelectorAll('.container-form__btns'),
               registrationField = document.querySelectorAll('.container-shape'),
               closeModal = document.querySelectorAll('.buttom-close');
@@ -9,26 +10,23 @@ document.addEventListener('DOMContentLoaded', function(){
         const allInput = document.querySelectorAll(' .input-form');
         const allMessage = document.querySelectorAll('.error-message'); 
         let timer;
-
-
-        btnsForm.forEach(function (item, i) {
-            item.addEventListener('click', function(e){
-              e.preventDefault;
-              shapeSelectionWindow.classList.add('hiden');
-              registrationField[i].classList.remove('hiden');
-              registrationField[i].classList.add('container-shape__show');
-          });
+        const foto = document.querySelector('.foto');
+        Array.prototype.slice.call(btnsForm).forEach( function(element, i) {
+            element.addEventListener('click', function(e){
+                e.preventDefault;
+                shapeSelectionWindow.classList.add('hiden');
+                registrationField[i].classList.remove('hiden');
+                registrationField[i].classList.add('container-shape__show');
+            });
         });
-        
-        closeModal.forEach(function (btnClose, i) {
-           
-            btnClose.addEventListener('click', function(e){
-                 e.preventDefault;
-                 registrationField[i].classList.remove('container-shape__show');
-                 registrationField[i].classList.add('hiden');
-                 shapeSelectionWindow.classList.remove('hiden');
-                 hidingErrorЬessages(allInput);
-                 
+
+        Array.prototype.slice.call(closeModal).forEach( function(element, i) {
+            element.addEventListener('click', function(e){
+                e.preventDefault;
+                registrationField[i].classList.remove('container-shape__show');
+                registrationField[i].classList.add('hiden');
+                shapeSelectionWindow.classList.remove('hiden');
+                hidingErrorЬessages(allInput);
             });
         });
         
@@ -43,22 +41,17 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
-        closeSuccessfulRegistration.forEach(function(item){
-            item.addEventListener('click', function(e){
+        Array.prototype.slice.call(closeSuccessfulRegistration).forEach( function(element) {
+            element.addEventListener('click', function(e){
                 e.preventDefault();
                 blockSuccessfulRegistration.classList.add('hiden');
                 blockSuccessfulRegistration.classList.remove('block__successful-registration_show');
                 shapeSelectionWindow.classList.remove('hiden');
                 clearTimeout(timer);
-            })    
-        })
-       
+            }) 
+        });
 
-    // };
-    // OpeningTheRegistrationWindow()
-   
-    // function formValidation(){
-        
+       
         const inputTextName = document.querySelector('#city'),
               inputMailNumber = document.querySelector('#mail-phone'),
               allForms = document.querySelectorAll('.block-input-forms_one .input-form'),
@@ -88,11 +81,17 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log(obj);
                 const registrationField = document.querySelector('#one-registr');
                 blocksuccessfulRegistration(successfulRegistration, registrationField);
-                allForms.forEach(function(item){
-                    item.value='';
+                Array.prototype.slice.call(allForms).forEach( function(element) {
+                    element.value='';
                 });
-                timer = setTimeout(automaticWindowClosing, 3000);
-                
+                if(navigator.userAgent == 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko'){
+                    const player = document.querySelector('lottie-player');
+                    player.classList.add('hiden');
+                    foto.classList.remove('hiden');
+                   
+                }
+               
+                // timer = setTimeout(automaticWindowClosing, 3000);
             };
         });
         
@@ -103,9 +102,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log(objTwo);
                 const registrationField = document.querySelector('#two-registr');
                 blocksuccessfulRegistration(successfulRegistration, registrationField);
-                allFormsTwo.forEach(function(item){
-                    item.value='';
+                
+                Array.prototype.slice.call( allFormsTwo).forEach( function(element) {
+                    element.value='';
                 });
+                if(navigator.userAgent == 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko'){
+                    const player = document.querySelector('lottie-player');
+                    player.classList.add('hiden');
+                    foto.classList.remove('hiden');
+                }
                 timer = setTimeout(automaticWindowClosing, 3000);
             };
         });
@@ -113,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
 
         function blocksuccessfulRegistration(block, blockreg){
+            
             block.classList.add('block__successful-registration_show');
             block.classList.remove('hiden');
             blockreg.classList.add('hiden');
@@ -120,16 +126,16 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
          function automaticWindowClosing(){
-            successfulRegistration.classList.remove('block__successful-registration_show');
-            successfulRegistration.classList.add('hiden');
-            shapeSelectionWindow.classList.remove('hiden');
-            registrationField.forEach(function(item){
-                item.classList.remove('container-shape__show');
-            })
-         }
+             
+                successfulRegistration.classList.remove('block__successful-registration_show');
+                successfulRegistration.classList.add('hiden');
+                shapeSelectionWindow.classList.remove('hiden');
+                Array.prototype.slice.call(registrationField).forEach( function(element) {
+                    element.classList.remove('container-shape__show');
+                });
+                foto.classList.remove('hide');
 
-
-
+             }
 
         function validationFunction(){
             if(!validad(phonePattern, inputMailNumber.value) && !validad(emailPattern, inputMailNumber.value)){
@@ -209,27 +215,27 @@ document.addEventListener('DOMContentLoaded', function(){
         };
 
         function errorMessageOutput(item, message){
-            message.forEach(function(elem){
-               if(item.dataset.inpu == elem.dataset.in && item.value == ''){
-                    elem.classList.add('error-hide');
+            Array.prototype.slice.call(message).forEach( function(element) {
+                if(item.dataset.inpu == element.dataset.in && item.value == ''){
+                    element.classList.add('error-hide');
                 }
-                else if(item.dataset.inpu == elem.dataset.in){
-                    elem.classList.add('error-hide');
-                    elem.textContent = 'Ожидалось' + item.placeholder;
+                else if(item.dataset.inpu == element.dataset.in){
+                    element.classList.add('error-hide');
+                    element.textContent = 'Ожидалось ' + item.placeholder;
                 }
             });
-            
+    
         };
         
         function deleteErrorMessage(itemDel, messageDel){
-            messageDel.forEach(function(elemDel){
-                if(itemDel.dataset.inpu == elemDel.dataset.in){
-                    elemDel.classList.remove('error-hide');
+
+
+            Array.prototype.slice.call(messageDel).forEach( function(element) {
+                if(itemDel.dataset.inpu == element.dataset.in){
+                    element.classList.remove('error-hide');
                 }
             });
         };
-
-    // };
-    // formValidation();
+     
 });
 

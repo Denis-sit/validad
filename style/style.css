@@ -234,6 +234,7 @@ input[type=checkbox]:checked + label::after {
     left: 1px;
     background-size: contain;
     margin-bottom: 4px;
+    top:1px;
 }
 
 .container-shape__btns{
@@ -340,4 +341,14 @@ input[type=checkbox]:checked + label::after {
 
 .block__successful-registration_show{
     display: flex;
+}
+
+.foto{
+    width: 300px;
+    height: 180px;
+    background-image: url("../img/yes.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 45px;
+    margin-bottom: 30px;
 }
