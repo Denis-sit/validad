@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
                 else if(item.dataset.inpu == elem.dataset.in){
                     elem.classList.add('error-hide');
-                    elem.textContent = `Ожидалось ${item.placeholder}`;
+                    elem.textContent = 'Ожидалось' + item.placeholder;
                 }
             });
             
