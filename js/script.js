@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
                    
                 }
                
-                // timer = setTimeout(automaticWindowClosing, 3000);
+                timer = setTimeout(automaticWindowClosing, 3000);
             };
         });
         
